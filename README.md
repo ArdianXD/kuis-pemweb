@@ -12,5 +12,5 @@ Modifikasilah website dengan ketentuan sebagai berikut :
 2. Tambahkan halaman input transaksi, dimana 1 Orders dapat memiliki banyak Detail Order (buatkan tombol untuk menambahkan kolom inputan Detail Order). Ketika submit, maka akan insert data ke table Orders dan Table Detai Orders
 
 
-Link Website yang di hosting: 
+Link Website yang di hosting:<br> 
 input-kuis.epizy.com
