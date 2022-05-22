@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FASTER - Logistics Company Website Template</title>
+    <title>Input Transaksi</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -49,10 +48,11 @@
         </div>
     </div>
     <!-- Topbar End -->
+
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="home.html" class="navbar-brand ml-lg-3">
+            <a href="index.php" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary">Input</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -60,12 +60,12 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="home.html" class="nav-item nav-link">Home</a>
-                    <a href="input-barang.html" class="nav-item nav-link">Input Barang</a>
-                    <a href="input-kategori.html" class="nav-item nav-link">Input Kategori</a>
-                    <a href="list-kategori.html" class="nav-item nav-link">List Kategori</a>
-                    <a href="input-transaksi.html" class="nav-item nav-link">Input Transaksi</a>
-                    <a href="detail-order.html" class="nav-item nav-link active">Detail Order</a>
+                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="input-barang.php" class="nav-item nav-link">Input Barang</a>
+                    <a href="input-kategori.php" class="nav-item nav-link">Input Kategori</a>
+                    <a href="list-kategori.php" class="nav-item nav-link">List Kategori</a>
+                    <a href="input-transaksi.php" class="nav-item nav-link active">Input Transaksi</a>
+                    <a href="detail-order.php" class="nav-item nav-link">Detail Order</a>
                 </div>
             </div>
     </div>
@@ -77,53 +77,52 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3">Detail Order</h1>
+            <h1 class="text-white display-3">Input Transaksi</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="home.html">Home</a></p>
+                <p class="m-0"><a class="text-white" href="index.php">Home</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Detail Order</p>
+                <p class="m-0">Input Transaksi</p>
             </div>
         </div>
     </div>
     </div>
     <!-- Header End -->
 
-    <!-- List Start -->
+    <!-- Input Start -->
     <div class="container-fluid py-5">
         <div class="container">
-            <h1 class="mb-4">Detail Order</h1>
+            <h1 class="mb-4">Masukkan Transaksi</h1>
             <div class="row align-items-center">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">ID Kategori</th>
-                            <th scope="col">Nama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>Bird</td>
-
-                        </tr>
-                    </tbody>
-                </table>
+                <form action="savedata-transaksi.php" method="post" class="mt-5">
+                    <div class="input-field">
+                        <table class="table table-bordered" id="table_field">
+                            <tr>
+                                <th>ID Detail Order</th>
+                                <th>Kuantitas</th>
+                                <th>ID Order</th>
+                                <th>ID Barang</th>
+                                <th>Tanggal</th>
+                                <th>Status</th>
+                                <th>Tambah Atau Hapus</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" id="kode_barang" name="id_detailorder[]" placeholder="ID Detail Order" required></td>
+                                <td><input type="text" class="form-control" id="kode_barang" name="quantity[]" placeholder="Kuantitas" required></td>
+                                <td><input type="text" class="form-control" id="kode_barang" name="id_order[]" placeholder="ID Order" required></td>
+                                <td><input type="text" class="form-control" id="kode_barang" name="id_barang[]" placeholder="ID Barang" required></td>
+                                <td><input type="text" class="form-control" id="kode_barang" name="tanggal[]" placeholder="Tanggal" required></td>
+                                <td><input type="text" class="form-control" id="kode_barang" name="status[]" placeholder="Status" required></td>
+                                <td><input type="button" class="btn btn-primary" id="add" name="add[]" value="Tambah"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
-    <!-- List End -->
+    <!-- Input End -->
 
 
     <!-- Footer Start -->
@@ -144,11 +143,11 @@
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">Quick Links</h3>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="input-barang.html"><i class="fa fa-angle-right mr-2"></i>Input Barang</a>
-                            <a class="text-white mb-2" href="input-kategori.html"><i class="fa fa-angle-right mr-2"></i>Input Kategori</a>
-                            <a class="text-white mb-2" href="list-kategori.html"><i class="fa fa-angle-right mr-2"></i>List Kategori</a>
-                            <a class="text-white mb-2" href="input-transaksi.html"><i class="fa fa-angle-right mr-2"></i>Input Transaksi</a>
-                            <a class="text-white" href="detail-order.html"><i class="fa fa-angle-right mr-2"></i>Detail Order</a>
+                            <a class="text-white mb-2" href="input-barang.php"><i class="fa fa-angle-right mr-2"></i>Input Barang</a>
+                            <a class="text-white mb-2" href="input-kategori.php"><i class="fa fa-angle-right mr-2"></i>Input Kategori</a>
+                            <a class="text-white mb-2" href="list-kategori.php"><i class="fa fa-angle-right mr-2"></i>List Kategori</a>
+                            <a class="text-white mb-2" href="input-transaksi.php"><i class="fa fa-angle-right mr-2"></i>Input Transaksi</a>
+                            <a class="text-white" href="detail-order.php"><i class="fa fa-angle-right mr-2"></i>Detail Order</a>
                         </div>
                     </div>
                 </div>
@@ -190,7 +189,7 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
@@ -203,6 +202,28 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function () {  
+
+            var html = '<tr><td><input type="text" class="form-control" id="kode_barang" name="id_detailorder[]" placeholder="ID Detail Order" required></td><td><input type="text" class="form-control" id="kode_barang" name="quantity[]" placeholder="Kuantitas" required></td><td><input type="text" class="form-control" id="kode_barang" name="id_order[]" placeholder="ID Order" required></td> <td><input type="text" class="form-control" id="kode_barang" name="id_barang[]" placeholder="ID Barang" required></td><td><input type="text" class="form-control" id="kode_barang" name="tanggal[]" placeholder="Tanggal" required></td><td><input type="text" class="form-control" id="kode_barang" name="status[]" placeholder="Status" required></td><td><input type="button" class="btn btn-secondary" id="remove" name="remove" value="Hapus"></td></tr>';
+            
+            var max = 5;
+            var x = 1;
+
+            $("#add").click(function(){
+                if (x <= max) {
+                    $("#table_field").append(html);
+                    x++
+                }
+               
+            });
+            $("#table_field").on('click','#remove',function(){
+                $(this).closest('tr').remove();
+                x--
+            });
+        });
+    </script>
 </body>
 
 </html>

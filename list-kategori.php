@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Input Kategori</title>
+    <title>List Kategori</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -47,11 +48,10 @@
         </div>
     </div>
     <!-- Topbar End -->
-
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="home.html" class="navbar-brand ml-lg-3">
+            <a href="index.php" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary">Input</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -59,12 +59,12 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="home.html" class="nav-item nav-link">Home</a>
-                    <a href="input-barang.html" class="nav-item nav-link">Input Barang</a>
-                    <a href="input-kategori.html" class="nav-item nav-link active">Input Kategori</a>
-                    <a href="list-kategori.html" class="nav-item nav-link">List Kategori</a>
-                    <a href="input-transaksi.html" class="nav-item nav-link">Input Transaksi</a>
-                    <a href="detail-order.html" class="nav-item nav-link">Detail Order</a>
+                    <a href="index.php" class="nav-item nav-link">Home</a>
+                    <a href="input-barang.php" class="nav-item nav-link">Input Barang</a>
+                    <a href="input-kategori.php" class="nav-item nav-link">Input Kategori</a>
+                    <a href="list-kategori.php" class="nav-item nav-link active">List Kategori</a>
+                    <a href="input-transaksi.php" class="nav-item nav-link">Input Transaksi</a>
+                    <a href="detail-order.php" class="nav-item nav-link">Detail Order</a>
                 </div>
             </div>
     </div>
@@ -76,33 +76,58 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3">Input Kategori</h1>
+            <h1 class="text-white display-3">List Kategori</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="home.html">Home</a></p>
+                <p class="m-0"><a class="text-white" href="index.php">Home</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Input Kategori</p>
+                <p class="m-0">List Kategori</p>
             </div>
         </div>
     </div>
     </div>
     <!-- Header End -->
 
-    <!-- Input Start -->
+    <!-- List Start -->
+    <?php
+        include "koneksi.php";
+        $query = "SELECT * FROM kategori";
+        $result = mysqli_query($koneksi, $query);
+    ?>
     <div class="container-fluid py-5">
         <div class="container">
-            <h1 class="mb-4">Masukkan Sebuah Kategori</h1>
+            <h1 class="mb-4">List Kategori</h1>
             <div class="row align-items-center">
-                <form action="savedata.php" method="post" class="mt-5">
-                    <div class="form-group">
-                        <label for="kategori">Kategori</label>
-                        <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Kategori" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ID Kategori</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if (mysqli_num_rows($result) > 0) {
+                        $nomor=1;
+                        while($data = mysqli_fetch_assoc($result)) {
+                       ?>
+                        <tr>
+                            <th scope="row"><?= $nomor;?></th>
+                            <td><?= $data['id_kategori'];?></td>
+                            <td><?= $data['nama'];?></td>
+                            <td><a href="delete-kategori.php?id_kategori=<?= $data['id_kategori']?>"><button class="btn btn-primary">Hapus</button></a></td>
+                        </tr>
+                        <?php
+                        $nomor++;}} else {?>
+                            <td>Data Kosong</td>
+                        <?php }?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <!-- Input End -->
+    <!-- List End -->
 
 
     <!-- Footer Start -->
@@ -123,11 +148,11 @@
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">Quick Links</h3>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="input-barang.html"><i class="fa fa-angle-right mr-2"></i>Input Barang</a>
-                            <a class="text-white mb-2" href="input-kategori.html"><i class="fa fa-angle-right mr-2"></i>Input Kategori</a>
-                            <a class="text-white mb-2" href="list-kategori.html"><i class="fa fa-angle-right mr-2"></i>List Kategori</a>
-                            <a class="text-white mb-2" href="input-transaksi.html"><i class="fa fa-angle-right mr-2"></i>Input Transaksi</a>
-                            <a class="text-white" href="detail-order.html"><i class="fa fa-angle-right mr-2"></i>Detail Order</a>
+                            <a class="text-white mb-2" href="input-barang.php"><i class="fa fa-angle-right mr-2"></i>Input Barang</a>
+                            <a class="text-white mb-2" href="input-kategori.php"><i class="fa fa-angle-right mr-2"></i>Input Kategori</a>
+                            <a class="text-white mb-2" href="list-kategori.php"><i class="fa fa-angle-right mr-2"></i>List Kategori</a>
+                            <a class="text-white mb-2" href="input-transaksi.php"><i class="fa fa-angle-right mr-2"></i>Input Transaksi</a>
+                            <a class="text-white" href="detail-order.php"><i class="fa fa-angle-right mr-2"></i>Detail Order</a>
                         </div>
                     </div>
                 </div>
