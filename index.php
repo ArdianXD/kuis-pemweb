@@ -97,6 +97,14 @@
                     </a>
                     <p>Masukkan sebuah barang</p>
                     </div>
+                    <a href="list-barang.php" class="">
+                        <div class="ftr col-lg-3 col-md-6 text-center mb-5">
+                            <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
+                                <h6 class="text-white font-weight-medium m-0">List Barang</h6>
+                            </div>
+                    </a>
+                    <p>Lihat barang-barang yang telah dimasukkan</p>
+                    </div>
                     <a href="input-kategori.php" class="">
                         <div class="col-lg-3 col-md-6 text-center mb-5">
                             <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
