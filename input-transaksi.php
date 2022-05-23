@@ -62,6 +62,7 @@
                 <div class="navbar-nav m-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="input-barang.php" class="nav-item nav-link">Input Barang</a>
+                    <a href="list-barang.php" class="nav-item nav-link">List Barang</a>
                     <a href="input-kategori.php" class="nav-item nav-link">Input Kategori</a>
                     <a href="list-kategori.php" class="nav-item nav-link">List Kategori</a>
                     <a href="input-transaksi.php" class="nav-item nav-link active">Input Transaksi</a>
@@ -144,6 +145,7 @@
                         <h3 class="text-primary mb-4">Quick Links</h3>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white mb-2" href="input-barang.php"><i class="fa fa-angle-right mr-2"></i>Input Barang</a>
+                            <a class="text-white mb-2" href="list-barang.php"><i class="fa fa-angle-right mr-2"></i>List Barang</a>
                             <a class="text-white mb-2" href="input-kategori.php"><i class="fa fa-angle-right mr-2"></i>Input Kategori</a>
                             <a class="text-white mb-2" href="list-kategori.php"><i class="fa fa-angle-right mr-2"></i>List Kategori</a>
                             <a class="text-white mb-2" href="input-transaksi.php"><i class="fa fa-angle-right mr-2"></i>Input Transaksi</a>

@@ -61,9 +61,9 @@
                 <div class="navbar-nav m-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="input-barang.php" class="nav-item nav-link">Input Barang</a>
-                    <a href="list-barang.php" class="nav-item nav-link">List Barang</a>
+                    <a href="list-barang.php" class="nav-item nav-link active">List Barang</a>
                     <a href="input-kategori.php" class="nav-item nav-link">Input Kategori</a>
-                    <a href="list-kategori.php" class="nav-item nav-link active">List Kategori</a>
+                    <a href="list-kategori.php" class="nav-item nav-link">List Kategori</a>
                     <a href="input-transaksi.php" class="nav-item nav-link">Input Transaksi</a>
                     <a href="detail-order.php" class="nav-item nav-link">Detail Order</a>
                 </div>
@@ -77,11 +77,11 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3">List Kategori</h1>
+            <h1 class="text-white display-3">List Barang</h1>
             <div class="d-inline-flex align-items-center text-white">
                 <p class="m-0"><a class="text-white" href="index.php">Home</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">List Kategori</p>
+                <p class="m-0">List Barang</p>
             </div>
         </div>
     </div>
@@ -91,7 +91,7 @@
     <!-- List Start -->
     <?php
         include "koneksi.php";
-        $query = "SELECT * FROM kategori";
+        $query = "SELECT * FROM barang";
         $result = mysqli_query($koneksi, $query);
     ?>
     <div class="container-fluid py-5">
@@ -102,8 +102,11 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">ID Kategori</th>
+                            <th scope="col">Kode Barang</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">ID Kategori</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -115,9 +118,12 @@
                        ?>
                         <tr>
                             <th scope="row"><?= $nomor;?></th>
-                            <td><?= $data['id_kategori'];?></td>
+                            <td><?= $data['kode_barang'];?></td>
                             <td><?= $data['nama'];?></td>
-                            <td><a href="delete-kategori.php?id_kategori=<?= $data['id_kategori']?>"><button class="btn btn-primary">Hapus</button></a></td>
+                            <td><?= $data['stok'];?></td>
+                            <td><?= $data['harga'];?></td>
+                            <td><?= $data['id_kategori'];?></td>
+                            <td><a href="delete-barang.php?kode_barang=<?= $data['id_kategori']?>"><button class="btn btn-primary">Hapus</button></a></td>
                         </tr>
                         <?php
                         $nomor++;}} else {?>
