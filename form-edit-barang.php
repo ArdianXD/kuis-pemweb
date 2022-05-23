@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Detail Order</title>
+    <title>Edit Barang</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -49,6 +47,7 @@
         </div>
     </div>
     <!-- Topbar End -->
+
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
@@ -62,11 +61,11 @@
                 <div class="navbar-nav m-auto py-0">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="input-barang.php" class="nav-item nav-link">Input Barang</a>
-                    <a href="list-barang.php" class="nav-item nav-link">List Barang</a>
+                    <a href="list-barang.php" class="nav-item nav-link active">List Barang</a>
                     <a href="input-kategori.php" class="nav-item nav-link">Input Kategori</a>
                     <a href="list-kategori.php" class="nav-item nav-link">List Kategori</a>
                     <a href="input-transaksi.php" class="nav-item nav-link">Input Transaksi</a>
-                    <a href="detail-order.php" class="nav-item nav-link active">Detail Order</a>
+                    <a href="detail-order.php" class="nav-item nav-link">Detail Order</a>
                 </div>
             </div>
     </div>
@@ -78,62 +77,56 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3">Detail Order</h1>
+            <h1 class="text-white display-3">Edit Data</h1>
             <div class="d-inline-flex align-items-center text-white">
                 <p class="m-0"><a class="text-white" href="index.php">Home</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Detail Order</p>
+                <p class="m-0">Edit Data</p>
             </div>
         </div>
     </div>
     </div>
     <!-- Header End -->
 
-    <!-- List Start -->
+    <!-- Input Start -->
     <?php
         include "koneksi.php";
-        $query = "SELECT * FROM detail_order";
-        $result= mysqli_query($koneksi, $query);
+        $query = "SELECT * FROM barang where kode_barang = '$_GET[kode_barang]'";
+        $result = mysqli_query($koneksi, $query);
     ?>
     <div class="container-fluid py-5">
         <div class="container">
-            <h1 class="mb-4">Detail Order</h1>
+            <h1 class="mb-4">Edit Data</h1>
             <div class="row align-items-center">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">ID Detail Order</th>
-                            <th scope="col">Kuantitas</th>
-                            <th scope="col">ID Order</th>
-                            <th scope="col">ID Barang</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    if (mysqli_num_rows($result) > 0) {
-                        $nomor=1;
-                        while($data = mysqli_fetch_assoc($result)) {
-                       ?>
-                        <tr>
-                            <th scope="row"><?= $nomor;?></th>
-                            <td><?= $data['id_detailorder'];?></td>
-                            <td><?= $data['quantity'];?></td>
-                            <td><?= $data['id_order'];?></td>
-                            <td><?= $data['id_barang'];?></td>
-                            <td><a href="delete-orders.php?id_detailorder=<?= $data['id_detailorder']?>"><button class="btn btn-primary">Hapus</button></a></td>
-                        </tr>
-                        <?php
-                        $nomor++;}} else {?>
-                        <td>Data Kosong</td>
-                        <?php }?>
-                    </tbody>
-                </table>
+                <form action="edit-barang.php" method="post" class="mt-5">
+                    <div class="form-group">
+                           <?php 
+                            $fetch = mysqli_fetch_array($result); ?>
+                            <label for="kd_barang">Kode Barang</label>
+                            <input class="form-control" type="text" value="<?php echo $_GET['kode_barang'] ?>" id="kd_barang" name="kode_barang" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="kategori">Nama</label>
+                        <input type="text" class="form-control" id="kategori" name="nama_barang" placeholder="Nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kategori">Stok</label>
+                        <input type="text" class="form-control" id="kategori" name="stok" placeholder="Stok" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kategori">Harga</label>
+                        <input type="text" class="form-control" id="kategori" name="harga" placeholder="Harga" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kategori">Kategori</label>
+                        <input type="text" class="form-control" id="kategori" name="id_kategori" placeholder="Kategori" value="<?php echo $fetch['id_kategori'] ?>" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </div>
-    <!-- List End -->
+    <!-- Input End -->
 
 
     <!-- Footer Start -->
